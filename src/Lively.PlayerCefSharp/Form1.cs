@@ -438,7 +438,9 @@ namespace Lively.PlayerCefSharp
             try
             {
             CallbackObjectForJs _callBackObjectForJs = new CallbackObjectForJs();
-            chromeBrowser.RegisterAsyncJsObject("callbackObj", _callBackObjectForJs);
+            browser.JavascriptObjectRepository.Settings.LegacyBindingEnabled = true;
+            // chromeBrowser.RegisterAsyncJsObject("callbackObj", _callBackObjectForJs);
+            browser.JavascriptObjectRepository.Register("callbackObj", _callBackObjectForJs, isAsync: true);
             }
             catch (Exception e)
             {
