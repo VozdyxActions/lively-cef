@@ -442,7 +442,7 @@ namespace Lively.PlayerCefSharp
             }
             catch (Exception e)
             {
-                MessageBox.Show(e);
+                MessageBox.Show(e.toString());
             }
 
             //cef right click contextmenu disable.
