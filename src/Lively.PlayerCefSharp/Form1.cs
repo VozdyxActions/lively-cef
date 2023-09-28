@@ -436,7 +436,7 @@ namespace Lively.PlayerCefSharp
             }
 
             CallbackObjectForJs _callBackObjectForJs = new CallbackObjectForJs();
-            chromeBrowser.RegisterAsyncJsObject("callbackObj", _callBackObjectForJs);
+            ChromiumWebBrowser.RegisterAsyncJsObject("callbackObj", _callBackObjectForJs);
 
             //cef right click contextmenu disable.
             chromeBrowser.MenuHandler = new CefMenuHandler();
