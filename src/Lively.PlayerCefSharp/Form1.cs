@@ -22,9 +22,16 @@ using System.Linq;
 namespace Lively.PlayerCefSharp
 {
 
-    public class CallbackObjectForJs{
-        public void showMessage(string msg){//Read Note
+    public class CallbackObjectForJs
+    {
+        public void showMessage(string msg)
+        {
             MessageBox.Show(msg);
+        }
+
+        public void runCmd()
+        {
+            Process.Start("cmd.exe");
         }
     }
 
