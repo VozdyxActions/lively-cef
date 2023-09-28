@@ -21,6 +21,13 @@ using System.Linq;
 
 namespace Lively.PlayerCefSharp
 {
+
+    public class CallbackObjectForJs{
+        public void showMessage(string msg){//Read Note
+            MessageBox.Show(msg);
+        }
+    }
+
     public partial class Form1 : Form
     {
         #region init
@@ -427,6 +434,9 @@ namespace Lively.PlayerCefSharp
                     }
                     break;
             }
+
+            _callBackObjectForJs= new CallbackObjectForJs();
+            chromeBrowser.RegisterAsyncJsObject("callbackObj", _callBackObjectForJs);
 
             //cef right click contextmenu disable.
             chromeBrowser.MenuHandler = new CefMenuHandler();
