@@ -24,6 +24,9 @@ jobs:
         run: msbuild src\Lively.sln -t:rebuild -property:Configuration=Release
       - name: Deleting optional files
         run: |
+          dir ${{ github.workspace }}
+          dir ${{ github.workspace }}\src
+          dir ${{ github.workspace }}\src\bin
           cd ${{ github.workspace }}\src\bin\Release\
           del *.xml
           del *.pdb
