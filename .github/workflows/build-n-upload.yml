@@ -35,6 +35,7 @@ jobs:
           name: ${{ env.ARTIFACT_NAME }}
           path: ${{ github.workspace }}\src\Lively.PlayerCefSharp\bin\${{ github.event.repository.name }}
       - name: Archive Release
+        if: ${{ github.event_name == 'release' }}
         uses: thedoctor0/zip-release@0.7.1
         with:
           type: 'zip'
@@ -42,6 +43,7 @@ jobs:
           directory: ${{ github.workspace }}
           path: ${{ github.workspace }}\src\Lively.PlayerCefSharp\bin\${{ github.event.repository.name }}
       - name: Upload artifact.zip
+        if: ${{ github.event_name == 'release' }}
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.ARTIFACT_NAME }}.zip
