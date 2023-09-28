@@ -24,10 +24,7 @@ jobs:
         run: msbuild src\Lively.sln -t:rebuild -property:Configuration=Release
       - name: Deleting optional files
         run: |
-          dir ${{ github.workspace }}
-          dir ${{ github.workspace }}\src
-          dir ${{ github.workspace }}\src\Lively.PlayerCefSharp
-          cd ${{ github.workspace }}\src\bin\Release\
+          cd ${{ github.workspace }}\src\Lively.PlayerCefSharp\bin\Release\
           del *.xml
           del *.pdb
           cd..
@@ -36,14 +33,14 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.ARTIFACT_NAME }}
-          path: ${{ github.workspace }}\src\bin\${{ github.event.repository.name }}
+          path: ${{ github.workspace }}\src\Lively.PlayerCefSharp\bin\${{ github.event.repository.name }}
       - name: Archive Release
         uses: thedoctor0/zip-release@0.7.1
         with:
           type: 'zip'
           filename: ${{ env.ARTIFACT_NAME }}.zip
           directory: ${{ github.workspace }}
-          path: ${{ github.workspace }}\src\bin\${{ github.event.repository.name }}
+          path: ${{ github.workspace }}\src\Lively.PlayerCefSharp\bin\${{ github.event.repository.name }}
       - name: Upload artifact.zip
         uses: actions/upload-artifact@v3
         with:
