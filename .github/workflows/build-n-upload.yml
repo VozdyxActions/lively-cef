@@ -26,7 +26,7 @@ jobs:
         run: |
           dir ${{ github.workspace }}
           dir ${{ github.workspace }}\src
-          dir ${{ github.workspace }}\src\bin
+          dir ${{ github.workspace }}\src\Lively.PlayerCefSharp
           cd ${{ github.workspace }}\src\bin\Release\
           del *.xml
           del *.pdb
