@@ -87,7 +87,7 @@ namespace Lively.PlayerCefSharp
                 .WithParsed((x) => startArgs = x)
                 .WithNotParsed(HandleParseError);
 
-            this.WindowState = FormWindowState.Normal;
+            this.WindowState = FormWindowState.Minimized;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(-9999, 0);
 
@@ -347,6 +347,9 @@ namespace Lively.PlayerCefSharp
         public void InitializeCefSharp()
         {
             CefSettings settings = new CefSettings();
+            //disable chromium from parsing global command line
+            //ref: https://github.com/cefsharp/CefSharp/discussions/4618
+            settings.CommandLineArgsDisabled = true;
             //ref: https://magpcss.org/ceforum/apidocs3/projects/(default)/_cef_browser_settings_t.html#universal_access_from_file_urls
             //settings.CefCommandLineArgs.Add("allow-universal-access-from-files", "1"); //UNSAFE, Testing Only!
             if (startArgs.Volume == 0)
